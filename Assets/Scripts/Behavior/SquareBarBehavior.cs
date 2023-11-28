@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class SquareBarBehavior : MonoBehaviour
@@ -9,13 +10,10 @@ public class SquareBarBehavior : MonoBehaviour
         GetIndexInHierarchy();
     }
 
-    void Update() => RotateSquareBarConstantly();
+    void FixedUpdate() => RotateSquareBarConstantly();
 
-    void RotateSquareBarConstantly()
-    {
-        transform.Rotate(-Vector3.forward, rotationSpeed * Time.deltaTime);
-    }
-    
+    void RotateSquareBarConstantly() => transform.Rotate(-Vector3.forward, rotationSpeed * Time.deltaTime);
+
     void GetIndexInHierarchy()
     {
         int objectIndex = transform.GetSiblingIndex() + 1;
