@@ -1,14 +1,10 @@
-using System;
 using UnityEngine;
 
 public class SquareBarBehavior : MonoBehaviour
 {
     [SerializeField] float rotationSpeed = 5.5f;
 
-    void Start()
-    {
-        GetIndexInHierarchy();
-    }
+    void Start() => GetIndexInHierarchy();
 
     void FixedUpdate() => RotateSquareBarConstantly();
 

@@ -22,20 +22,20 @@ public class GameManager : MonoBehaviour
         FindMalwareSpawner();
         SubscribeActions();
     }
-    
+
     void FindMalwareSpawner() => malwareSpawner = FindObjectOfType<MalwareSpawner>();
 
     void SubscribeActions()
     {
-        malwareSpawner.isDrumStarted += ActiveDrum;
-        malwareSpawner.isDrumFinished += DeactiveDrum;
+        malwareSpawner.isDrumStarted += ActivateDrum;
+        malwareSpawner.isDrumFinished += DeactivateDrum;
     }
 
-    void DefineDifficulty() => difficultyLevel = 2; //TODO: JSON'DAN ÇEK BU DEĞERİ. ANA MENÜDE TIKLAYICA JSONA YAZ.
+    void DefineDifficulty() => difficultyLevel = 2; //TODO: playerprefse gir
 
-    void ActiveDrum() => isDrumActive = true;
+    void ActivateDrum() => isDrumActive = true;
 
-    void DeactiveDrum() => isDrumActive = false;
+    void DeactivateDrum() => isDrumActive = false;
 
     void DefineSongRPM()
     {
@@ -50,8 +50,8 @@ public class GameManager : MonoBehaviour
     
     void UnsubscribeActions()
     {
-        malwareSpawner.isDrumStarted -= ActiveDrum;
-        malwareSpawner.isDrumFinished -= DeactiveDrum;
+        malwareSpawner.isDrumStarted -= ActivateDrum;
+        malwareSpawner.isDrumFinished -= DeactivateDrum;
     }
 
     void OnDestroy() => UnsubscribeActions();

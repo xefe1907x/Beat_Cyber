@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TrojanBehavior : MonoBehaviour
 {
-    float moveSpeed = 2.3f;
+    float moveSpeed = 2f;
 
     void FixedUpdate() => MoveTrojanToPlayer();
 
